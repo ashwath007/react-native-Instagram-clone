@@ -10,8 +10,9 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
-import Story from 'react-native-story'
+import NavigationBar from 'react-native-navbar';
+import Story from 'react-native-story';
+import Icon from 'react-native-vector-icons/Feather';
 
 const App = () => {
 
@@ -42,8 +43,40 @@ const App = () => {
     },
   ];
 
+  const titleConfig = {
+    title: 'Instagram',
+    ellipsizeMode : "head",
+    style: {
+      fontSize: 28,
+      marginTop:12,
+      fontFamily: 'Billabong',
+    }
+  };
+
+ 
+
   return (
     <View>
+      <View>
+      <NavigationBar
+        title={titleConfig}
+        rightButton={<Icon
+          style={{ marginRight: 16, marginTop: 12}}
+          name='camera'
+          type='font-awesome'
+          size={24}
+        />
+
+        }
+        leftButton={<Icon
+          style={{ marginLeft: 16, marginTop: 12}}
+          name='settings'
+          type='font-awesome'
+          size={24}
+        />}
+        style={styles.nav}
+      />
+      </View>
       <Story
             unPressedBorderColor="#e95950"
             pressedBorderColor="#ebebeb"
@@ -61,7 +94,14 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-
+  nav:{
+    height:55,
+    fontSize: 30,
+    fontFamily: 'Billabong',
+  },
+  footerInput:{
+    marginTop:0
+  }
 });
 
 export default App;
